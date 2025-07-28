@@ -1,2 +1,2 @@
 # analysis-of-molecular-dynamics-simulation
-for Amber
+some cpptraj file & python files to apply analysis of molecular dynamics simulation (Amber)
