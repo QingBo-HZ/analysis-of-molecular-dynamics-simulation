@@ -1,0 +1,20 @@
+# load prmtop files
+parm /home/jqb/qm/1_Cl/com_wat.prmtop
+
+# load trajectory files
+trajin /home/jqb/qm/1_Cl/equil?.cdf
+trajin /home/jqb/qm/1_Cl/equil10.cdf
+
+
+# strip
+strip :Na+,Cl-
+strip :WAT
+
+# center
+autoimage
+
+# calculate RG
+radgyr :1-994&!(@H=) out rg.csv mass nomax
+
+run
+quit
