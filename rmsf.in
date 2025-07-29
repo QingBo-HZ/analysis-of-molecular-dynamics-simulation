@@ -1,0 +1,21 @@
+# load prmtop files
+parm /home/jqb/qm/1_Cl/com_wat.prmtop
+
+# load trajectory files
+trajin /home/jqb/qm/1_Cl/equil?.cdf
+trajin /home/jqb/qm/1_Cl/equil10.cdf
+
+strip :WAT
+strip :Na+
+strip :Cl-
+strip :EOH
+
+rms first
+average crdset MyAvg @CA,C,N
+run
+
+rms ref MyAvg :1-994@C,CA,N
+atomicfluct out com_rmsf.csv :1-994 byres
+
+run
+quit
