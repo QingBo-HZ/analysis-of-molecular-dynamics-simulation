@@ -1,0 +1,22 @@
+# load prmtop files
+parm /home/jqb/qm/1_Cl/com_wat.prmtop
+
+# load trajectory files
+trajin /home/jqb/qm/1_Cl/equil?.cdf
+trajin /home/jqb/qm/1_Cl/equil10.cdf
+
+# strip
+strip :Na+,Cl-
+strip :WAT
+
+# center
+autoimage
+
+# calculate RMSD
+rmsd :1-494@C,CA,N first out rms_vfd2.csv
+rmsd :495-993@C,CA,N first out rms_vfd3.csv
+rmsd :1-993@C,CA,N first out rms_com.csv
+rmsd :994 first out rms_lig.csv
+
+run
+quit
