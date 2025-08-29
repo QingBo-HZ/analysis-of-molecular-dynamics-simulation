@@ -1,0 +1,21 @@
+# load prmtop files
+parm /home/jqb/qm/1_Cl/com_wat.prmtop
+
+# load trajectory files
+trajin /home/jqb/qm/1_Cl/equil?.cdf
+trajin /home/jqb/qm/1_Cl/equil10.cdf
+
+# strip
+strip :Na+,Cl-
+strip :WAT
+
+# center
+autoimage
+
+# All SASA
+surf :1-494@CA out surf_vfd2.csv
+surf :495-993@CA out surf_vfd3.csv
+surf :1-994@CA out surf_com.csv
+
+# Partial SASA
+# surf :10-20 out surf.csv solutemask :1-629
